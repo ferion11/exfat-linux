@@ -28,6 +28,10 @@
 #define SET_IVERSION(x,y)	(x->i_version = y)
 #endif
 
+#ifndef _TIME_T
+    typedef __kernel_old_time_t	time_t;
+#endif
+
 #if LINUX_VERSION_CODE >= KERNEL_VERSION(4, 18, 0)
 #define timespec_compat	timespec64
 #define KTIME_GET_REAL_TS ktime_get_real_ts64
